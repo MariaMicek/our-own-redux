@@ -1,19 +1,15 @@
-export const createStore = (reducer) => {
-    let state = {}
+import { createStore, combineReducers } from './redux'
+import users, {setUsersActionCreator} from './state/users'
+import  events, {setEventsActionCreator}from './state/events'
 
-    const getState = () => state
+const rootReducer = combineReducers({
+    users: users,
+    events: events,
+}) 
 
-    const dispatch = (newAction) => {
-        const newState = reducer(state, newAction)
-        state = newState
-        return newAction
-    }
+const store = createStore(rootReducer)
 
-    const store = {
-        getState,
-        dispatch
-    }
+store.dispatch(setUsersActionCreator(['marysia', 'basia']))
+store.dispatch(setEventsActionCreator(['event1', 'event2']))
 
-    return store
-}
-
+console.log(store.getState())
