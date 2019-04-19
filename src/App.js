@@ -2,7 +2,7 @@ import React from 'react'
 
 import { store } from './store'
 
-store.set('users', [])
+store.dispatch({})
 
 console.log(store.getState())
 

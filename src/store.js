@@ -1,13 +1,20 @@
-const state = {}
+let state = {}
 
 const getState = () => state
 
-const set = (key, value) => state[key] = value
+const dispatch = (newAction) => {
+    const newState = reducer(state, newAction)
+    state = newState
+    return newAction
+}
 
-const get = (key) => state[key]
+const reducer = (state, action) => {
+    return {
+        users: []
+    }
+}
 
 export const store = {
     getState,
-    set,
-    get,
+    dispatch
 }
