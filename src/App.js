@@ -1,6 +1,19 @@
 import React from 'react'
+import { createStore } from './store'
 
-import { store } from './store'
+const reducer = (state, action) => {
+  switch(action.type){
+      case 'SET':
+      return{
+          ...state,
+          users: action.users
+      }
+      default:
+      return state
+  }
+}
+
+const store = createStore(reducer)
 
 store.dispatch({})
 console.log(store.getState())
