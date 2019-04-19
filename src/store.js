@@ -1,7 +1,13 @@
-const store = {}
+const state = {}
 
-export const getState = () => store
+const getState = () => state
 
-export const set = (key, value) => store[key] = value
+const set = (key, value) => state[key] = value
 
-export const get = (key) => store[key]
+const get = (key) => state[key]
+
+export const store = {
+    getState,
+    set,
+    get,
+}

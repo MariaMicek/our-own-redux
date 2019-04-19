@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { set, getState } from './store'
+import { store } from './store'
 
-set('users', [])
+store.set('users', [])
 
-console.log(getState())
+console.log(store.getState())
 
 const App = (props) => (
   <div>
